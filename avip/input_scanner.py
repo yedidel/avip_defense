@@ -27,7 +27,7 @@ import re
 import time
 from dataclasses import dataclass
 
-from sig import SIGVerifier
+from sv import SIGVerifier
 from sv.embeddings import Embedder, cosine_similarity
 
 

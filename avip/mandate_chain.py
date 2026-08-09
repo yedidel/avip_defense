@@ -19,7 +19,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from sig import SIGVerifier
+from sv import SIGVerifier
 from sv.types import Decision
 
 from avip.types import CartMandate, IntentMandate
