@@ -24,6 +24,11 @@ de-anonymized version will be linked here at acceptance.
   - `d1_ablation.py` — per-channel ablation
   - `sv_sensitivity_curve.py` — Channel A threshold sweep
   - `throughput_scaling.py` / `throughput_perchannel.py` — performance
+- `experiments/` — the raw provider responses and append-only ledgers behind
+  every measurement in the paper, one subdirectory per experiment. Each holds
+  a `ledger.jsonl` (one record per model call, with a per-response SHA-256
+  digest) and a `raw.zip` of the exact responses. See
+  `experiments/README.md`.
 
 ## Quick start
 
