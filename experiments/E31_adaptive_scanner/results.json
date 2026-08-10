@@ -1,0 +1,27 @@
+{
+  "by_generator": {
+    "openai/gpt-5.5": [
+      13,
+      24
+    ],
+    "anthropic/claude-sonnet-4.6": [
+      10,
+      24
+    ],
+    "google/gemini-3.5-flash": [
+      0,
+      24
+    ]
+  },
+  "payload_any_generator": [
+    14,
+    24
+  ],
+  "spend_usd": 1.378,
+  "generators": [
+    "openai/gpt-5.5",
+    "anthropic/claude-sonnet-4.6",
+    "google/gemini-3.5-flash"
+  ],
+  "retries": 4
+}
