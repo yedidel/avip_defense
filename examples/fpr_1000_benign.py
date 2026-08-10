@@ -17,9 +17,9 @@ from collections import defaultdict
 from pathlib import Path
 
 # Paths
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "avip" / "sv" / "src"))
-sys.path.insert(0, str(ROOT / "avip" / "avip-defense" / "src"))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT))
 
 from avip.input_scanner import InputScanner
 

@@ -25,8 +25,8 @@ import statistics
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "avip" / "sv" / "src"))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 HERE = Path(__file__).resolve().parent
 
@@ -35,7 +35,7 @@ def main() -> None:
     from sv.embeddings import Embedder, cosine_similarity
     from avip.input_scanner import BENIGN_REFERENCES  # type: ignore
     # We need the InputScanner package, which lives in avip-defense.
-    sys.path.insert(0, str(ROOT / "avip" / "avip-defense" / "src"))
+    sys.path.insert(0, str(ROOT))
     from avip.input_scanner import BENIGN_REFERENCES  # noqa
 
     benign = json.loads(

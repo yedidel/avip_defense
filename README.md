@@ -46,9 +46,9 @@ python examples/d1_ablation.py
 
 ## Companion benchmark
 
-The accompanying benchmark **AP2-WhisperBench** is released in a
-separate repository:
-`https://anonymous.4open.science/r/ap2-whisperbench-anon`
+The accompanying benchmark **AP2-WhisperBench** is released as a
+standalone HuggingFace dataset:
+`https://huggingface.co/datasets/anonymos-2321135/ap2-whisperbench`
 
 ## License
 
