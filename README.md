@@ -49,7 +49,4 @@ Code: Apache 2.0 (see `LICENSE-Apache-2.0`).
 The attack-harness subdirectory carries an additional Acceptable Use
 clause (see `attacks/ACCEPTABLE_USE.md`).
 
-## Citation
 
-To be linked at de-anonymization. Cite the paper as anonymous-AVIP-2027
-during review.
