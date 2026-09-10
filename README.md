@@ -1,10 +1,5 @@
 # A-VIP — Protocol-Level Semantic Defense for AP2
 
-
-
-**Status**: anonymized release for double-blind review. The
-de-anonymized version will be linked here at acceptance.
-
 ## What this repo contains
 
 - `avip/` — Input Scanner (three channels: SBERT cosine, regex set,
