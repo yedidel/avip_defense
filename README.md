@@ -1,8 +1,6 @@
 # A-VIP — Protocol-Level Semantic Defense for AP2
 
-Reference implementation of the A-VIP defense described in the paper
-*"A-VIP: Protocol-Level Semantic Defense Against Whisper Attacks on
-Google's Agent Payments Protocol"* (IEEE S&P 2027 submission).
+
 
 **Status**: anonymized release for double-blind review. The
 de-anonymized version will be linked here at acceptance.
