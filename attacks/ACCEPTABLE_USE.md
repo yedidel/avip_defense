@@ -8,7 +8,7 @@ used to evaluate the A-VIP defense.
 This code is provided for:
 - Security research
 - Evaluation of A-VIP and other defenses against AP2 whisper attacks
-- Academic study and reproducibility of the IEEE S&P 2027 paper
+- Academic study and reproducibility of the accompanying paper
 
 ## Prohibited use
 

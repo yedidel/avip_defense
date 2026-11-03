@@ -1,11 +1,7 @@
-# A-VIP — Protocol-Level Semantic Defense for AP2
+# A-VIP: reference implementation and evaluation harness
 
-Reference implementation of the A-VIP defense described in the paper
-*"A-VIP: Protocol-Level Semantic Defense Against Whisper Attacks on
-Google's Agent Payments Protocol"* (IEEE S&P 2027 submission).
-
-**Status**: anonymized release for double-blind review. The
-de-anonymized version will be linked here at acceptance.
+Reference implementation and evaluation harness accompanying an anonymous paper
+on decision binding in agent payment protocols (AP2).
 
 ## What this repo contains
 
@@ -14,7 +10,9 @@ de-anonymized version will be linked here at acceptance.
 - `sv/` — Semantic Verifier composition (SBERT cosine + DeBERTa-v3 NLI
   + narrow brand-overlap guard).
 - `tla/` — TLA+ formal specification of DDFC. Four machine-checked
-  invariants (I1–I4) plus the VaultWhisperResistance theorem.
+  invariants (I1–I4) plus the VaultWhisperResistance theorem. Also a
+  bounded model of decision-basis binding (`DecisionBinding.tla`, seven
+  configurations, with TLC logs).
 - `attacks/harness/` — A/B harness that runs unmodified
   `google/ap2@v0.2.0` against attack/benign workloads and computes
   effective ASR / FPR.
@@ -29,6 +27,21 @@ de-anonymized version will be linked here at acceptance.
   a `ledger.jsonl` (one record per model call, with a per-response SHA-256
   digest) and a `raw.zip` of the exact responses. See
   `experiments/README.md`.
+- `live_hp/` — harness for the live AP2 human-present shopping flow: a driver
+  that runs the unmodified AP2 v0.2.0 sample shopping agent against an
+  adversary-controlled merchant catalog with a scripted user, the OpenRouter
+  routing hook for the sample's venv, scenario builders, and the analysis and
+  reading tools for the live-flow experiments. Its data (scenarios, traces,
+  reading labels) is in the companion benchmark under `data/live_hp/`. See
+  `live_hp/README.md`.
+- `binding/` — decision-basis binding with an authority rule: a capture
+  wrapper on the merchant calls, claim attribution (lexical and model-based),
+  the authority rule with STRIP / ANNOTATE policies, a decision record and its
+  third-party verifier; its integration into the live AP2 flow; and the
+  scripts that recompute its measurements (integration, mediation,
+  attribution, identity, utility replay, residual arms, adaptive attacker)
+  from the companion benchmark's `data/live_hp/binding/`. See
+  `binding/README.md`.
 
 ## Quick start
 
@@ -58,5 +71,4 @@ clause (see `attacks/ACCEPTABLE_USE.md`).
 
 ## Citation
 
-To be linked at de-anonymization. Cite the paper as anonymous-AVIP-2027
-during review.
+See the accompanying paper.

@@ -1,8 +1,8 @@
 """T2.7 — Throughput and multi-core scaling for the Input Scanner.
 
-The critic (review 2) asked for "throughput and CPU core scaling
-numbers (req/s vs. cores) and memory footprints" beyond the
-per-call p50/p99 latency we reported in §6.8.
+Measures throughput and CPU-core scaling (req/s vs. cores) and
+memory footprint, complementing the per-call p50/p99 latency
+reported in the paper.
 
 This benchmark runs the InputScanner on a mixed 50-benign + 50-attack
 workload, replayed N times, across worker counts in {1, 2, 4, 8}

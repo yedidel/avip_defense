@@ -1,7 +1,7 @@
 """B2 -- Channel-A cosine threshold sensitivity curve.
 
-The reviewer asked: how sensitive are SV thresholds to benign
-distribution drift? Could you share calibration curves?
+Question: how sensitive are SV thresholds to benign distribution
+drift? This script produces the calibration curves.
 
 We sweep the Channel A cosine threshold (tau_block) over [0.10, 0.40]
 and report, per threshold value:

@@ -1,0 +1,153 @@
+[
+ {
+  "config": "C0 HP sample: no constraints",
+  "case": "honest (WANT)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C0 HP sample: no constraints",
+  "case": "redirect (payee = attacker)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C0 HP sample: no constraints",
+  "case": "inflate (WANT at +15%)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C0 HP sample: no constraints",
+  "case": "boost (different item, not listed)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C0 HP sample: no constraints",
+  "case": "add_on (extra line at displayed total)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C0 HP sample: no constraints",
+  "case": "selection (ALT, listed as acceptable)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C1 HNP v2: LineItems=[WANT], cap=WANT price",
+  "case": "honest (WANT)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C1 HNP v2: LineItems=[WANT], cap=WANT price",
+  "case": "redirect (payee = attacker)",
+  "blocked": true,
+  "violations": [
+   "Payee alliance-7745 not in allowed list"
+  ]
+ },
+ {
+  "config": "C1 HNP v2: LineItems=[WANT], cap=WANT price",
+  "case": "inflate (WANT at +15%)",
+  "blocked": true,
+  "violations": [
+   "Amount 17135 exceeds maximum 14900"
+  ]
+ },
+ {
+  "config": "C1 HNP v2: LineItems=[WANT], cap=WANT price",
+  "case": "boost (different item, not listed)",
+  "blocked": true,
+  "violations": [
+   "Item sku_alt not in any requirement's acceptable items",
+   "Amount 22900 exceeds maximum 14900"
+  ]
+ },
+ {
+  "config": "C1 HNP v2: LineItems=[WANT], cap=WANT price",
+  "case": "add_on (extra line at displayed total)",
+  "blocked": true,
+  "violations": [
+   "Item sku_extra not in any requirement's acceptable items"
+  ]
+ },
+ {
+  "config": "C2 HNP v2: LineItems=[WANT], cap=2x",
+  "case": "honest (WANT)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C2 HNP v2: LineItems=[WANT], cap=2x",
+  "case": "redirect (payee = attacker)",
+  "blocked": true,
+  "violations": [
+   "Payee alliance-7745 not in allowed list"
+  ]
+ },
+ {
+  "config": "C2 HNP v2: LineItems=[WANT], cap=2x",
+  "case": "inflate (WANT at +15%)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C2 HNP v2: LineItems=[WANT], cap=2x",
+  "case": "boost (different item, not listed)",
+  "blocked": true,
+  "violations": [
+   "Item sku_alt not in any requirement's acceptable items"
+  ]
+ },
+ {
+  "config": "C2 HNP v2: LineItems=[WANT], cap=2x",
+  "case": "add_on (extra line at displayed total)",
+  "blocked": true,
+  "violations": [
+   "Item sku_extra not in any requirement's acceptable items"
+  ]
+ },
+ {
+  "config": "C3 shortlist: LineItems=[WANT,ALT], cap=2x",
+  "case": "honest (WANT)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C3 shortlist: LineItems=[WANT,ALT], cap=2x",
+  "case": "redirect (payee = attacker)",
+  "blocked": true,
+  "violations": [
+   "Payee alliance-7745 not in allowed list"
+  ]
+ },
+ {
+  "config": "C3 shortlist: LineItems=[WANT,ALT], cap=2x",
+  "case": "inflate (WANT at +15%)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C3 shortlist: LineItems=[WANT,ALT], cap=2x",
+  "case": "boost (different item, not listed)",
+  "blocked": false,
+  "violations": []
+ },
+ {
+  "config": "C3 shortlist: LineItems=[WANT,ALT], cap=2x",
+  "case": "add_on (extra line at displayed total)",
+  "blocked": true,
+  "violations": [
+   "Item sku_extra not in any requirement's acceptable items"
+  ]
+ },
+ {
+  "config": "C3 shortlist: LineItems=[WANT,ALT], cap=2x",
+  "case": "selection (ALT, listed as acceptable)",
+  "blocked": false,
+  "violations": []
+ }
+]

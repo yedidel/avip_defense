@@ -1,0 +1,90 @@
+TLC2 Version 2026.10.28.014557 (rev: 56d37a9)
+Running breadth-first search Model-Checking with fp 72 and seed 6533069429997291949 with 4 workers on 8 cores with 3177MB heap and 64MB offheap memory [pid: 856] (Windows 11 10.0 amd64, Microsoft 21.0.8 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file <repo>\tla\DecisionBinding.tla
+Parsing file <tmp>\tlc-15517233800242630038\FiniteSets.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file <tmp>\tlc-15517233800242630038\TLC.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file <tmp>\tlc-15517233800242630038\_TLCTrace.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file <tmp>\tlc-15517233800242630038\Naturals.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file <tmp>\tlc-15517233800242630038\Sequences.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file <tmp>\tlc-15517233800242630038\TLCExt.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file <tmp>\tlc-15517233800242630038\Integers.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module DecisionBinding
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module DecisionBinding
+Starting... (2026-10-29 20:43:23)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-10-29 20:43:23.
+Error: Invariant BasisBound is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ influence = {}
+/\ missed = {}
+/\ context = {}
+/\ signed = "none"
+/\ pc = "search"
+/\ chosen = "none"
+
+State 2: <Search line 71, col 5 to line 74, col 56 of module DecisionBinding>
+/\ influence = {}
+/\ missed = {}
+/\ context = { [s |-> [speaker |-> "o1", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o1", about |-> "t2"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o2", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o2", about |-> "t2"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o3", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o3", about |-> "t2"], annotated |-> FALSE] }
+/\ signed = "none"
+/\ pc = "choose"
+/\ chosen = "none"
+
+State 3: <Choose line 77, col 5 to line 82, col 46 of module DecisionBinding>
+/\ influence = {[s |-> [speaker |-> "o1", about |-> "t2"], annotated |-> FALSE]}
+/\ missed = {}
+/\ context = { [s |-> [speaker |-> "o1", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o1", about |-> "t2"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o2", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o2", about |-> "t2"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o3", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o3", about |-> "t2"], annotated |-> FALSE] }
+/\ signed = "none"
+/\ pc = "checkout"
+/\ chosen = "o2"
+
+State 4: <Checkout line 86, col 5 to line 89, col 56 of module DecisionBinding>
+/\ influence = {[s |-> [speaker |-> "o1", about |-> "t2"], annotated |-> FALSE]}
+/\ missed = {}
+/\ context = { [s |-> [speaker |-> "o1", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o1", about |-> "t2"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o2", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o2", about |-> "t2"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o3", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o3", about |-> "t2"], annotated |-> FALSE] }
+/\ signed = "none"
+/\ pc = "sign"
+/\ chosen = "o2"
+
+State 5: <Sign line 92, col 5 to line 95, col 57 of module DecisionBinding>
+/\ influence = {[s |-> [speaker |-> "o1", about |-> "t2"], annotated |-> FALSE]}
+/\ missed = {}
+/\ context = { [s |-> [speaker |-> "o1", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o1", about |-> "t2"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o2", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o2", about |-> "t2"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o3", about |-> "t1"], annotated |-> FALSE],
+  [s |-> [speaker |-> "o3", about |-> "t2"], annotated |-> FALSE] }
+/\ signed = "o2"
+/\ pc = "done"
+/\ chosen = "o2"
+
+2168 states generated, 418 distinct states found, 370 states left on queue.
+The depth of the complete state graph search is 5.
+Finished in 01s at (2026-10-29 20:43:23)
+Trace exploration spec path: .\DecisionBinding_TTrace_1793299402.tla
