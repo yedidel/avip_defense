@@ -1,7 +1,7 @@
 # A-VIP: reference implementation and evaluation harness
 
-Reference implementation and evaluation harness accompanying an anonymous paper
-on decision binding in agent payment protocols (AP2).
+Reference implementation and evaluation harness accompanying a paper on
+decision binding in agent payment protocols (AP2).
 
 ## What this repo contains
 
@@ -68,7 +68,3 @@ standalone HuggingFace dataset:
 Code: Apache 2.0 (see `LICENSE-Apache-2.0`).
 The attack-harness subdirectory carries an additional Acceptable Use
 clause (see `attacks/ACCEPTABLE_USE.md`).
-
-## Citation
-
-See the accompanying paper.
