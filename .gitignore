@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.DS_Store
+
+# live_hp runtime scratch (current trial, logs, generated keys, price cache)
+live_hp/_run/
+*.pem
+
+# binding scripts: default output folder
+binding/_out/

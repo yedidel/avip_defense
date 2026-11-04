@@ -1,0 +1,32 @@
+TLC2 Version 2026.10.28.014557 (rev: 56d37a9)
+Running breadth-first search Model-Checking with fp 8 and seed -2969289768824033739 with 4 workers on 8 cores with 3177MB heap and 64MB offheap memory [pid: 27228] (Windows 11 10.0 amd64, Microsoft 21.0.8 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file <repo>\tla\DecisionBinding.tla
+Parsing file <tmp>\tlc-338588244008356797\FiniteSets.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file <tmp>\tlc-338588244008356797\TLC.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file <tmp>\tlc-338588244008356797\_TLCTrace.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file <tmp>\tlc-338588244008356797\Naturals.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file <tmp>\tlc-338588244008356797\Sequences.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file <tmp>\tlc-338588244008356797\TLCExt.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file <tmp>\tlc-338588244008356797\Integers.tla (jar:file:<repo>/tla/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module DecisionBinding
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module DecisionBinding
+Starting... (2026-10-29 20:43:35)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-10-29 20:43:35.
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 1.5E-12
+37826 states generated, 770 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 6.
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 31 and the 95th percentile is 1).
+Finished in 01s at (2026-10-29 20:43:36)

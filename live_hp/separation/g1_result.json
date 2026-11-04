@@ -1,0 +1,106 @@
+[
+ {
+  "session_owner": "bugsbunny@gmail.com",
+  "requested_account": "bugsbunny@gmail.com",
+  "address_state": "TaskState.completed",
+  "address": [
+   {
+    "contact_picker.ContactAddress": {
+     "recipient": "Bugs Bunny",
+     "organization": "Sample Organization",
+     "address_line": [
+      "123 Main St"
+     ],
+     "city": "Sample City",
+     "region": "ST",
+     "postal_code": "00000",
+     "country": "US",
+     "phone_number": "+1-000-000-0000"
+    }
+   }
+  ],
+  "address_msg": [],
+  "methods_state": "TaskState.completed",
+  "methods": [
+   {
+    "payment_method_aliases": [
+     "American Express ending in 4444",
+     "American Express ending in 8888"
+    ]
+   }
+  ],
+  "methods_msg": []
+ },
+ {
+  "session_owner": "bugsbunny@gmail.com",
+  "requested_account": "daffyduck@gmail.com",
+  "address_state": "TaskState.completed",
+  "address": [
+   {
+    "contact_picker.ContactAddress": {}
+   }
+  ],
+  "address_msg": [],
+  "methods_state": "TaskState.completed",
+  "methods": [
+   {
+    "payment_method_aliases": []
+   }
+  ],
+  "methods_msg": []
+ },
+ {
+  "session_owner": "bugsbunny@gmail.com",
+  "requested_account": "elmerfudd@gmail.com",
+  "address_state": "TaskState.completed",
+  "address": [
+   {
+    "contact_picker.ContactAddress": {}
+   }
+  ],
+  "address_msg": [],
+  "methods_state": "TaskState.completed",
+  "methods": [
+   {
+    "payment_method_aliases": []
+   }
+  ],
+  "methods_msg": []
+ },
+ {
+  "session_owner": "bugsbunny@gmail.com",
+  "requested_account": "bugsbunny@gmail.com",
+  "alias": "American Express ending in 4444",
+  "token_state": "TaskState.completed",
+  "token": [
+   {
+    "token": "fake_payment_credential_token_0"
+   }
+  ],
+  "token_msg": []
+ },
+ {
+  "session_owner": "bugsbunny@gmail.com",
+  "requested_account": "daffyduck@gmail.com",
+  "alias": "Main checking account",
+  "token_state": "TaskState.completed",
+  "token": [
+   {
+    "token": "fake_payment_credential_token_1"
+   }
+  ],
+  "token_msg": []
+ },
+ {
+  "session_owner": "bugsbunny@gmail.com",
+  "requested_account": "elmerfudd@gmail.com",
+  "alias": "Fudd's PayPal",
+  "token_state": "TaskState.completed",
+  "token": [
+   {
+    "token": "fake_payment_credential_token_2"
+   }
+  ],
+  "token_msg": []
+ }
+]
