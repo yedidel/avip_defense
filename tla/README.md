@@ -1,64 +1,4 @@
-# DDFC — TLA+ machine-checkable specification
-
-This directory holds the TLA+ formalization of the Direct Data Flow
-Controller (DDFC) token-exchange protocol described in the accompanying
-paper.
-It also holds `DecisionBinding.tla`, a bounded model of decision-basis
-binding (see the section "DecisionBinding" below).
-
-## Files
-
-- `DDFC.tla` — the protocol specification: four-message exchange
-  M1–M4, attacker actions (relay, replay), and the four invariants
-  I1–I4 plus the structural-resistance theorem.
-- `DDFC.cfg` — TLC model-checker configuration with the bounded
-  parameter values used in the paper.
-
-## Running TLC
-
-```bash
-# Java 11+ and TLA+ Toolbox / community modules installed.
-tlc -config DDFC.cfg DDFC.tla
-```
-
-With the released configuration the state space is finite and TLC
-verifies all five invariants in under a minute on a laptop. The
-configuration intentionally includes an attacker merchant
-(`M_attacker`) and three users to exercise both relay (I2) and
-replay (I4) attempts.
-
-## What the spec proves
-
-- **I1 (No identifier disclosure)** — `uid` never appears in the
-  agent's reachable context or in any token field. The Vault
-  Whisper's argument-space attack surface is structurally removed.
-- **I2 (Audience binding)** — every accepted redemption is by the
-  audience the token names. Cross-merchant relay fails at the
-  Credentials Provider.
-- **I3 (Cart-mandate binding)** — every accepted redemption
-  presents the same cart hash the token was issued for.
-  Confused-deputy cart swaps fail at the Credentials Provider.
-- **I4 (Single-use + TTL)** — replayed tokens fail atomically;
-  expired tokens fail unconditionally.
-- **VaultWhisperResistance** — composition of I1–I4: no
-  reachable trace exposes any uid to the agent or to any
-  merchant, regardless of attacker-controlled merchant text.
-
-## Scope and limitations
-
-This is a *protocol-level* specification. It abstracts away from
-cryptographic signature verification (modelled as token integrity
-held by construction) and from the AP2 mandate-signing pipeline
-(treated as an external sequencing constraint). A machine-checked
-cryptographic proof of the JWT/COSE signature primitive is out of
-scope and would be performed in Tamarin or ProVerif on the
-underlying primitive, not on the DDFC protocol layer.
-
-The TLA+ specification is bundled with the paper artifact and is
-the machine-readable form of the invariants stated informally in
-the paper (Theorem "Vault-Whisper structural resistance").
-
-## DecisionBinding — bounded model of decision-basis binding
+# TLA+: bounded model of decision-basis binding
 
 `DecisionBinding.tla` models one AP2 human-present purchase: the merchant's
 search response, the agent's choice, the checkout response, an optional
@@ -77,7 +17,7 @@ attributor, every violation involves a statement the attributor missed.
 Bounded universe: sellers A, B; offers o1 (A, t1), o2 (B, t2), o3 (A, t2; A's
 copy of B's title); 6 statements. Results hold for this bound only.
 
-### Files
+## Files
 
 - `DecisionBinding.tla` — the specification; the constants select the
   configuration (`WrapSearch`, `WrapCheckout`, `Policy`, `Expansion`, `PerfectA`).
@@ -86,7 +26,7 @@ copy of B's title); 6 statements. Results hold for this bound only.
   paths replaced by `<repo>` and `<tmp>`; the first line is the build stamp of
   the tools jar).
 
-### Running TLC
+## Running TLC
 
 TLA+ tools from the v1.8.0 release channel, TLC2 build 2026.10.28.014557 (rev 56d37a9) (`tla2tools.jar`, SHA-256
 `fc6878c603f0fdc18b9fe3e5bf51860cb90ab5b1154e3c371660c036d6bdd63e`), Java 11+.
@@ -101,7 +41,7 @@ Each configuration finishes in seconds. With several workers, TLC stops at the
 first violation it finds, so the state counts of the violated runs vary
 between runs; the verdicts and the counts of the completed runs do not.
 
-### Results
+## Results
 
 | config | W on search | W on checkout | policy | expansion | attributor | invariant | TLC result | distinct states |
 |--|--|--|--|--|--|--|--|--|

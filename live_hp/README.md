@@ -19,6 +19,7 @@ live_hp/
   run/                   one shell script per experiment (run_main, run_cross_seller, run_heldout)
   analysis/              analysis scripts, packet layout and reader-label merging
   separation/            two deterministic checks on the AP2 sample and SDK, with results
+  price_sweep/           the main experiment at price gaps 1.2x and 2.0x (scenario builder, run script, analysis)
 ```
 
 The decision-binding mechanism and its experiments, which use this driver, are
@@ -123,19 +124,23 @@ traces are the record the tables are computed from.
 
 ### Decision-binding runs
 
-Three driver options serve the decision-binding experiments in `../binding/`:
+Four driver options serve the decision-binding experiments in `../binding/`:
 
 | Option | Effect |
 |---|---|
 | `--harden` | appends one line (`HARDEN_LINE` in `driver.py`) to the shopper sub-agent's system prompt: the in-model prompt-hardening baseline |
+| `--harden-all` | appends the same line to the root agent and to every sub-agent (`../binding/live_defenses/`); the record's `harden` is then `"all"` |
 | `--defense STRIP\|ANNOTATE` | installs the binding mechanism in the flow (`../binding/live/inflow.py`): the shopper's `find_products` and the root agent's `create_checkout` are wrapped, keeping their names and signatures |
 | `--attributor a-lex\|a-llm:<model>` | the attributor used with `--defense` (default `a-lex`; `a-llm:` calls the given OpenRouter model) |
 
 Trial records then also carry `harden`, `defense` and `e43` (what the mechanism
 captured, attributed, presented, recorded and verified; `null` without
 `--defense`). The run scripts for these experiments are in
-`../binding/live/` (`run_f0_f1.sh`, `run_f5.sh`, `run_f6.sh`), with the same
-environment variables as above; see `../binding/README.md`.
+`../binding/live/` (`run_f0_f1.sh`, `run_f5.sh`, `run_f6.sh`),
+`../binding/strengthen/run_e44b.sh` and `../binding/live_defenses/run.sh`, with
+the same environment variables as above; see `../binding/README.md`. The price
+sweep of the main experiment is run by `price_sweep/run.sh` (see
+`price_sweep/README.md`).
 
 ## Recomputing the tables from the released data
 

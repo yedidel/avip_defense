@@ -9,10 +9,8 @@ decision binding in agent payment protocols (AP2).
   structural co-occurrence) plus mandate-chain composition.
 - `sv/` — semantic verifier (SV), an off-the-shelf two-stage check:
   Sentence-BERT cosine gate, then a DeBERTa-v3 NLI cross-encoder.
-- `tla/` — TLA+ formal specification of DDFC. Four machine-checked
-  invariants (I1–I4) plus the VaultWhisperResistance theorem. Also a
-  bounded model of decision-basis binding (`DecisionBinding.tla`, seven
-  configurations, with TLC logs).
+- `tla/` — a bounded TLA+ model of decision-basis binding
+  (`DecisionBinding.tla`, seven configurations, with TLC logs).
 - `attacks/harness/` — A/B harness that runs unmodified
   `google/ap2@v0.2.0` against attack/benign workloads and computes
   effective ASR / FPR.
@@ -31,7 +29,8 @@ decision binding in agent payment protocols (AP2).
   that runs the unmodified AP2 v0.2.0 sample shopping agent against an
   adversary-controlled merchant catalog with a scripted user, the OpenRouter
   routing hook for the sample's venv, scenario builders, and the analysis and
-  reading tools for the live-flow experiments. Its data (scenarios, traces,
+  reading tools for the live-flow experiments, including a price sweep of the
+  main experiment (`live_hp/price_sweep/`). Its data (scenarios, traces,
   reading labels) is in the companion benchmark under `data/live_hp/`. See
   `live_hp/README.md`.
 - `binding/` — decision-basis binding with an authority rule: a capture
@@ -39,9 +38,15 @@ decision binding in agent payment protocols (AP2).
   the authority rule with STRIP / ANNOTATE policies, a decision record and its
   third-party verifier; its integration into the live AP2 flow; and the
   scripts that recompute its measurements (integration, mediation,
-  attribution, identity, utility replay, residual arms, adaptive attacker)
-  from the companion benchmark's `data/live_hp/binding/`. See
+  attribution, identity, utility replay, residual arms, adaptive attacker,
+  honest-seller cost, tightened attributor, detector baselines, live
+  defenses) from the companion benchmark's `data/live_hp/binding/`. See
   `binding/README.md`.
+- `reading/` — the human reading of the reader-dependent numbers: builds the
+  blinded packets, picks calibration and hidden check cases, checks a returned
+  reading against the acceptance rule, and scores human against model-reader
+  labels. Its data is in the companion benchmark under `data/live_hp/reading/`.
+  See `reading/README.md`.
 
 ## Quick start
 

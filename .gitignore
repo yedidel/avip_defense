@@ -10,3 +10,7 @@ live_hp/_run/
 
 # binding scripts: default output folder
 binding/_out/
+
+# reading and price-sweep scripts: default output folders
+reading/_out/
+live_hp/_out/

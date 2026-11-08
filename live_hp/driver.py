@@ -17,6 +17,7 @@ the routing hook lives) with a clean environment.
 
 Options for the decision-binding experiments (binding/ in this repository):
   --harden                 one added line in the shopper's system prompt (HARDEN_LINE)
+  --harden-all             the same line in the root agent and in every sub-agent
   --defense STRIP|ANNOTATE install the binding mechanism (binding/live/inflow.py) in the flow
   --attributor SPEC        a-lex (default) or a-llm:<OpenRouter model id>
 A trial record then also carries "harden", "defense" and "e43" (what the mechanism captured,
@@ -313,6 +314,18 @@ async def child(args):
     from roles.shopping_agent.subagents.shopper.agent import shopper
     shopper.instruction = shopper.instruction.rstrip() + "\n    " + HARDEN_LINE + "\n"
     assert HARDEN_LINE in root_agent.sub_agents[[a.name for a in root_agent.sub_agents].index("shopper")].instruction
+  if args.harden_all:  # the same line in the root agent and in every sub-agent
+    def _all(a):
+      yield a
+      for s in getattr(a, "sub_agents", []) or []:
+        yield from _all(s)
+    hardened = []
+    for a in _all(root_agent):
+      assert isinstance(a.instruction, str), f"{a.name}: instruction is not a string"
+      if HARDEN_LINE not in a.instruction:
+        a.instruction = a.instruction.rstrip() + "\n    " + HARDEN_LINE + "\n"
+      hardened.append(a.name)
+    print("harden-all:", hardened)
   if args.defense:  # decision-basis binding (W + A + authority rule + R + verifier) in the flow
     sys.path.insert(0, str(HERE.parent / "binding" / "live"))
     import inflow
@@ -344,7 +357,7 @@ async def child(args):
       rec["agent_tokens"] = {"prompt": p, "completion": c, "calls": len(rec["usage"])}
       rec["agent_cost_usd"] = round(p * pin + c * pout, 5)
       rec["uid"] = uid
-      rec["harden"] = bool(args.harden)
+      rec["harden"] = "all" if args.harden_all else bool(args.harden)
       rec["defense"] = {"policy": args.defense, "attributor": args.attributor} if args.defense else None
       out.write_text(json.dumps(rec, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
       print(f"{uid}: terminal={rec['terminal']} e_sel={rec.get('e_sel_role')} pay={rec.get('e_pay')} "
@@ -367,6 +380,8 @@ if __name__ == "__main__":
   ap.add_argument("--baseline", default=None, help="AP2 sample checkout (default: $AP2_BASELINE)")
   ap.add_argument("--harden", action="store_true",
                   help="add HARDEN_LINE to the shopper's system prompt (prompt-hardening baseline)")
+  ap.add_argument("--harden-all", action="store_true",
+                  help="add HARDEN_LINE to the root agent and every sub-agent")
   ap.add_argument("--defense", default=None, choices=["STRIP", "ANNOTATE"],
                   help="install the decision-basis binding mechanism (binding/live/inflow.py) with this policy")
   ap.add_argument("--attributor", default="a-lex",

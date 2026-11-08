@@ -15,6 +15,9 @@ binding/
   replay/         F4 offline replay of recorded traces through W + A-LEX + R + verifier
   live/           the mechanism inside the live flow (inflow.py), scenario builders, run scripts, analyses
   reading/        reading packets, reader-label merging and adjudication
+  strengthen/     honest-seller cost of ANNOTATE, tightened attributor (A-LLM v2), off-the-shelf injection
+                  detectors, overhead, ANNOTATE composed with the measured attributor (see strengthen/README.md)
+  live_defenses/  ANNOTATE with the live attributor in the flow, and HARDEN in every agent (see live_defenses/README.md)
   _common.py      data location, trace access, Wilson CI, output checks
   _openrouter.py  minimal OpenRouter client for the scripts that call models (f2_allm, f6_adaptive)
 ```
@@ -22,7 +25,7 @@ binding/
 The bounded TLA+ model of the mechanism is `../tla/DecisionBinding.tla`
 (results and how to run TLC in `../tla/README.md`). The live-flow driver that
 runs trials with the mechanism in place is `../live_hp/driver.py`
-(`--defense`, `--attributor`, `--harden`; see `../live_hp/README.md`).
+(`--defense`, `--attributor`, `--harden`, `--harden-all`; see `../live_hp/README.md`).
 
 ## The mechanism
 
