@@ -36,6 +36,11 @@ reading/
                          13 hidden check cases mixed in, shuffled), plus the calibration and check keys
   round2_check.py        calib: feedback on the calibration stage; sample: validity checks, hidden-check score,
                          the acceptance decision, agreement with the model readers, answers JSON
+  make_round3.py         round 3, a full reading of H1 (210) and H5 (900, with the target offer): calibration
+                         (5), the full files (1,105, with 90 settled cases mixed in), the case map and keys
+  round3_check.py        calib: feedback; full: validity, settled-case score, acceptance, numbers from the human
+                         labels; correct: the one correction round; selftest: the same numbers from model labels
+  make_round3_correction.py  the correction-round files from a returned reading, and the frozen first submission
   score.py               paper numbers from human labels, human vs model-reader agreement (Cohen's kappa),
                          and agreement between two human readers
 ```
@@ -75,3 +80,29 @@ the full sets, which the model readers labelled).
 
 The HTML page keeps answers in the browser's local storage and exports them as JSON
 (`human_reading_<reader>_<role>.json`), the format `score.py` reads.
+
+## Round 3: full reading of H1 and H5
+
+A second human reader (`R4`) read all 210 H1 trials and all 900 H5 listings, giving for each H5 listing
+answered yes the offer it is about. Acceptance rule, fixed before any answer was seen: every row valid after
+at most one correction round, and at least 90% of each set of settled cases (39 trials, 51 listings: the
+round-2 checks and the round-2 sample cases on which the human and the model readers agreed) matched. The
+first submission matched 50 of 51 listings and 34 of 39 trials, all five misses from one reading of
+`noted`. One correction round, its rule fixed before any answer to it was seen (see `round3_check.py`),
+restated that question on all 105 trials with a `noted` answer and asked for the kind of each H5 yes
+answer (`specific` / `brand_line`).
+
+```bash
+python make_round3.py                                                    # packet, case map, keys (equal to the released ones)
+python round3_check.py calib "$R/round3/returned/R4/calib" R4            # 5/5
+python round3_check.py full  "$R/round3/returned/R4/calib" "$R/round3/returned/R4/full" R4   # 50/51, 34/39: not accepted
+python make_round3_correction.py "$R/round3/returned/R4/calib" "$R/round3/returned/R4/full"  # correction files as sent
+python round3_check.py correct "$R/round3/returned/R4/correction" R4     # 13 answers changed, 39/39: accepted
+python round3_check.py selftest                                          # the numbers from the model readers' labels
+```
+
+`correct` reports, from the human labels: the competitor's authorship reported to the user in 1 of 210
+trials; the claim presented as fact in 22, 22 and 1 of 70 (Flash-Lite, DeepSeek, GPT); 40 of 900 listings
+that say something about another offer (17 `specific`, 23 `brand_line`); false flags 18 (2.0%, A-LLM
+DeepSeek), 33 (Flash-Lite), 42 (tightened) and 148 (A-LEX) of 900, or 22, 35, 45 and 149 with brand and
+line claims counted as no; and agreement with the model readers on the round-1 packet cases.

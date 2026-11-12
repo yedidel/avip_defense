@@ -76,6 +76,8 @@ The live runs were made with a spending guard on the account balance; it is not 
   construction), 18/900. The decision rule fixed before the run required at least 9/12 evasions caught
   before an adaptive attacker would be run against v2, so that stage was not run. The evasions were
   found against v1, so 6/12 is not an adaptive result for v2.
+  Against the full human reading of the 900 listings (`reading/round3_check.py correct`), v2 falsely
+  flags 42/900 = 4.7% [3.5, 6.2], the value reported in the paper.
 - **E44b**: A-LLM v1 marks the honest statement as a statement about the other offer in 66/70 listings
   (one parse error). Alt signed (cross-seller no-claim / BEN / BEN-ANN) and D_cost in points [95% CI]:
   gemini-3.1-flash-lite 29/70, 20/70, 10/70, -14.3 [-22.9, -5.7]; deepseek-v4.1-flash 19/70, 9/70,

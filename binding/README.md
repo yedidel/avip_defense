@@ -171,6 +171,10 @@ What the released data gives (all reproduced by the commands above):
   18 listings make a statement about another listed offer (1 of the 60
   unflagged controls). Six deepseek replies cut off at the token limit were
   re-run and are not counted.
+  The numbers above use the model readers' ground truth (767 listings read). Against the full human
+  reading of all 900 listings (`reading/round3_check.py correct`, 40 listings with a statement), the false
+  flags are 18/900 = 2.0% [1.3, 3.1] (deepseek), 33/900 (flash-lite) and 148/900 = 16.4% (A-LEX); these
+  are the values reported in the paper.
 - **F3.** 11/11 identity cases pass.
 - **F4.** All 1,960 recorded captures equal the recorded tool responses. No
   false flag on any no-claim trace (350 main, 420 cross-seller). A-LEX recall
